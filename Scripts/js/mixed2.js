@@ -1,13 +1,18 @@
 function mixed () {
-	var num1 = captura("Please enter your first number");
-	var num2 = captura("Please enter your second number");
+	var num1 = captura("Please enter the first number");
+	var num2 = captura("Please enter the second number");
 	var signo = capturaSigno();
 	var resultado = operacion(signo, num1, num2);
 	alert("Your result is: " + resultado);
 }
 
 function captura (mensaje) {
-	return parseInt(prompt(mensaje));
+	var numTexto = prompt(mensaje);
+	while (isNaN(numTexto)) {
+		numTexto = prompt("It was not a valid number\n" + mensaje);
+	}
+
+	return parseInt(numTexto);
 }
 
 function capturaSigno() {
